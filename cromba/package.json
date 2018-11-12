@@ -3,12 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/react-bootstrap": "^0.32.14",
+    "@types/reactstrap": "^6.4.2",
+    "npm-run-all": "^4.1.3",
     "react": "^16.6.1",
+    "react-bootstrap": "^0.32.4",
+    "react-datetime-bootstrap": "^1.4.5",
     "react-dom": "^16.6.1",
-    "react-scripts-ts": "3.1.0"
+    "react-scripts-ts": "3.1.0",
+    "reactstrap": "^6.5.0"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
+    "start-server": "json-server -p 9020 --watch form-metadata.json",
+    "start-client": "react-scripts start",
+    "start": "npm-run-all --parallel start-server start-client",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
@@ -18,6 +26,7 @@
     "@types/node": "^10.12.3",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
+    "axios": "^0.18.0",
     "typescript": "^3.1.6"
   }
 }
