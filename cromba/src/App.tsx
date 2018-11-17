@@ -1,22 +1,32 @@
-import * as React from 'react';
-import './App.css';
+import * as React from 'react'
+import './App.css'
+import './types'
+import { DynamicForm } from './Components/dynamic-form/component'
+import FormService from './Services/form-service'
+import { FormField } from './types'
 
-import logo from './logo.svg';
+export interface State {
+  fields: FormField[]
+}
 
-class App extends React.Component {
-  public render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
-    );
+export interface Props {}
+
+class App extends React.Component<Props, State> {
+  formService: FormService = new FormService()
+  constructor(props: Props) {
+    super(props)
+
+    this.state = { fields: [] }
+  }
+
+  componentDidMount() {
+    this.formService.getFormFields().then(res => {
+      this.setState({ fields: res })
+    })
+  }
+  render() {
+    return <DynamicForm formFields={this.state.fields} />
   }
 }
 
-export default App;
+export default App

@@ -1,0 +1,56 @@
+{
+  "FormFields": [
+    {
+      "label": "Name",
+      "key": "name",
+      "type": "text",
+      "maxLength": 20,
+      "minLength": 3,
+      "placeholder": "Your Full Name",
+      "required": true
+    },
+    {
+      "label": "E-Mail",
+      "key": "email",
+      "type": "text",
+      "placeholder": "Your Email",
+      "required": false
+    },
+    {
+      "label": "Country",
+      "key": "nationality",
+      "type": "select",
+      "options": ["Egypt", "USA", "France"],
+      "placeholder": "Select"
+    },
+    {
+      "label": "Date",
+      "key": "joinDate",
+      "type": "date",
+      "placeholder": "When did you join?"
+    },
+    {
+      "label": "Active",
+      "key": "check",
+      "type": "checkbox",
+      "options": ["isActive"]
+    },
+    {
+      "label": "Age",
+      "key": "age",
+      "type": "number",
+      "placeholder": "specify an age",
+      "required": true,
+      "minLength": "2"
+    },
+    {
+      "label": "Length",
+      "key": "length",
+      "type": "number",
+      "placeholder": "specify",
+      "required": false,
+      "minLength": "0",
+      "unit": "cm"
+    }
+  ]
+}

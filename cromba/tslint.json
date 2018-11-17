@@ -4,7 +4,10 @@
     "interface-name": [false, "never"],
     "no-empty-interface": false,
     "member-access": [true, "no-public"],
-    "ordered-imports": false
+    "ordered-imports": false,
+    "object-literal-sort-keys": [false],
+    "no-console": false,
+    "no-debugger": false
   },
   "linterOptions": {
     "exclude": [

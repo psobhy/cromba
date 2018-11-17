@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { FormGroup } from 'reactstrap'
-import { ControlLabel, FormControl } from 'react-bootstrap'
+import { ControlLabel, FormControl, FormGroup } from 'react-bootstrap'
 import { FormField } from '../../types'
 
 export interface State {
@@ -13,6 +12,8 @@ export interface Props {
 export default class TextBox extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
+    this.state = { value: '' }
+    this.handleChange = this.handleChange.bind(this)
   }
 
   getValidationState() {
@@ -20,13 +21,15 @@ export default class TextBox extends React.Component<Props, State> {
     if (this.props.field.key === 'email') {
       return null
     }
-    if (length < this.props.field.minLength && length > 0) {
-      return 'error'
-    } else if (
-      length <= this.props.field.maxLength &&
-      length >= this.props.field.minLength
-    ) {
-      return 'success'
+    if (this.props.field.minLength && this.props.field.maxLength) {
+      if (length < this.props.field.minLength && length > 0) {
+        return 'error'
+      } else if (
+        length <= this.props.field.maxLength &&
+        length >= this.props.field.minLength
+      ) {
+        return 'success'
+      }
     }
     return null
   }
@@ -40,9 +43,10 @@ export default class TextBox extends React.Component<Props, State> {
   }
 
   handleChange(e: React.FormEvent<FormControl>) {
-    // tslint:disable-next-line:no-debugger
-    debugger
-    // this.setState({ value: e.target.value });
+    const val = (e.target as any).value
+    const value = val as string
+    console.log(value)
+    this.setState({ value })
   }
 
   render() {
@@ -61,7 +65,8 @@ export default class TextBox extends React.Component<Props, State> {
           type={this.checkEmail()}
           placeholder={field.placeholder}
           required={field.required}
-          maxLength={field.maxLength}
+          maxLength={field.maxLength ? field.maxLength : undefined}
+          minLength={field.minLength ? field.minLength : 0}
           value={value}
           onChange={this.handleChange}
         />
