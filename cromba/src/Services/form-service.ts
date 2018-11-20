@@ -1,16 +1,25 @@
 import FormRepository from 'src/Repo/form-repo'
-import { FormField } from 'src/types'
+import { FormField, FormSection } from 'src/types'
 
 class FormService {
-  formFields: FormField[] = []
+  formSections: FormSection[] = []
   formRepo: FormRepository = new FormRepository()
+  formFields: FormField[] = []
 
   getFormFields() {
     return this.formRepo.getFormFields().then(res => {
-      for (const item of res) {
-        this.MapToFormFields(item)
+      for (const section of res) {
+        for (const item of section.sectionFields) {
+          this.MapToFormFields(item)
+        }
+        const formSection: FormSection = {
+          name: section.name,
+          sectionFields: this.formFields,
+        }
+        this.formSections.push(formSection)
+        this.formFields = []
       }
-      return this.formFields
+      return this.formSections
     })
   }
 

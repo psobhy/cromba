@@ -6,7 +6,7 @@ const api = axios.create({
 
 export default class FormRepository {
   getFormFields() {
-    return api.get('/formfields').then(res => {
+    return api.get('/formSections').then(res => {
       return res.data
     })
   }

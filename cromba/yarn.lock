@@ -7259,11 +7259,6 @@ throat@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/throat/-/throat-3.2.0.tgz#50cb0670edbc40237b9e347d7e1f88e4620af836"
 
-throat@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/throat/-/throat-4.1.0.tgz#89037cbc92c56ab18926e6ba4cbb200e15672a6a"
-  integrity sha1-iQN8vJLFarGJJua6TLsgDhVnKmo=
-
 through2@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.3.tgz#0004569b37c7c74ba39c43f3ced78d1ad94140be"
@@ -7970,19 +7965,6 @@ ws@^5.2.0:
   resolved "https://registry.yarnpkg.com/ws/-/ws-5.2.2.tgz#dffef14866b8e8dc9133582514d1befaf96e980f"
   dependencies:
     async-limiter "~1.0.0"
-
-wsrun@^3.3.5:
-  version "3.3.5"
-  resolved "https://registry.yarnpkg.com/wsrun/-/wsrun-3.3.5.tgz#b7e2f6b7253b8ceacbc6284a06f25d85428b5298"
-  integrity sha512-ncpN2yrMsFN/ot0KZe4odnCfGDYXGyxq2gyFy6HWcDTO8IE1XiBDt9Dgw1Tfb3/k7HXDv4SAZ/m/SCo6YELqhw==
-  dependencies:
-    bluebird "^3.5.1"
-    chalk "^2.3.0"
-    glob "^7.1.2"
-    lodash "^4.17.4"
-    split "^1.0.1"
-    throat "^4.1.0"
-    yargs "^10.0.3"
 
 xdg-basedir@^3.0.0:
   version "3.0.0"

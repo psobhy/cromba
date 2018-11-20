@@ -3,10 +3,10 @@ import './App.css'
 import './types'
 import { DynamicForm } from './Components/dynamic-form/component'
 import FormService from './Services/form-service'
-import { FormField } from './types'
+import { FormSection } from './types'
 
 export interface State {
-  fields: FormField[]
+  formSections: FormSection[]
 }
 
 export interface Props {}
@@ -16,16 +16,16 @@ class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
 
-    this.state = { fields: [] }
+    this.state = { formSections: [] }
   }
 
   componentDidMount() {
     this.formService.getFormFields().then(res => {
-      this.setState({ fields: res })
+      this.setState({ formSections: res })
     })
   }
   render() {
-    return <DynamicForm formFields={this.state.fields} />
+    return <DynamicForm formSections={this.state.formSections} />
   }
 }
 
