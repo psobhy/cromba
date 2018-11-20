@@ -66,7 +66,7 @@ export default class TextBox extends React.Component<Props, State> {
           placeholder={field.placeholder}
           required={field.required}
           maxLength={field.maxLength ? field.maxLength : undefined}
-          minLength={field.minLength ? field.minLength : 0}
+          minLength={field.minLength ? field.minLength : undefined}
           value={value}
           onChange={this.handleChange}
         />

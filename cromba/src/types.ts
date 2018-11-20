@@ -1,3 +1,8 @@
+export interface FormSection {
+  name: string
+  sectionFields: FormField[]
+}
+
 export interface FormField {
   label: string
   key: string

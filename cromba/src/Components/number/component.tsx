@@ -6,6 +6,7 @@ import {
   InputGroup,
 } from 'react-bootstrap'
 import { FormField } from '../../types'
+import './component.css'
 
 export interface State {
   min?: number
@@ -37,7 +38,7 @@ export default class TextBox extends React.Component<Props, State> {
     if (this.props.field.unit) {
       return (
         <InputGroup>
-          <InputGroup.Addon className="col-1">
+          <InputGroup.Addon className="unitAddon col-1 ">
             {this.props.field.unit}
           </InputGroup.Addon>
           <FormControl

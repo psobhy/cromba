@@ -1,18 +1,12 @@
 import * as React from 'react'
 import { Form } from 'react-bootstrap'
-// import { FormField } from '../../types'
-import TextBox from '../textbox/component'
-import Number from '../number/component'
-import RadioButton from '../radiobutton/component'
-import CheckBox from '../checkbox/component'
-import DatePickerComponent from '../datepicker/component'
-import Select from '../select/component'
-import { FormField } from 'src/types'
+import { FormSection } from 'src/types'
+import Section from '../form-section'
 
 export interface State {}
 
 export interface Props {
-  formFields: FormField[]
+  formSections: FormSection[]
 }
 
 export class DynamicForm extends React.Component<Props, State> {
@@ -20,32 +14,16 @@ export class DynamicForm extends React.Component<Props, State> {
     super(props)
   }
 
-  renderFormFields(field: FormField) {
-    console.log(field)
-    if (field.type === 'text') {
-      return <TextBox field={field} key={field.key} />
-    } else if (field.type === 'select') {
-      return <Select field={field} key={field.key} />
-    } else if (field.type === 'radiobutton') {
-      return <RadioButton field={field} key={field.key} />
-    } else if (field.type === 'checkbox') {
-      return <CheckBox field={field} key={field.key} />
-    } else if (field.type === 'date') {
-      return <DatePickerComponent field={field} key={field.key} />
-    } else if (field.type === 'number') {
-      return <Number field={field} key={field.key} />
-    } else {
-      return null
-    }
-  }
-
   render() {
-    //  const { formFields } = this.props
     return (
-      <Form horizontal={true} className="offset-3 col-6 offset-3">
-        {this.props.formFields.map(field => this.renderFormFields(field))}
+      <Form className="offset-3 col-6 offset-3">
+        {this.props.formSections.map((section, index) => (
+          <Section section={section} key={index} />
+        ))}
 
-        <button type="submit">click</button>
+        <button type="submit" className="btn btn-lg ">
+          Click
+        </button>
       </Form>
     )
   }

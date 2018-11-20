@@ -27,8 +27,9 @@ export default class DatePickerComponent extends React.Component<Props, State> {
     const { Date } = this.state
     return (
       <FormGroup bsSize="large">
-        <ControlLabel>{field.placeholder}</ControlLabel>
-
+        <h4>
+          <ControlLabel>{field.placeholder}</ControlLabel>
+        </h4>
         <DateTime
           pickerOptions={this.setDatePickerProps()}
           value={Date}
